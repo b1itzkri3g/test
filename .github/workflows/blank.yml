@@ -1,0 +1,16 @@
+name: Request Challenge with Headers
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  send-request:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Send HTTP Request with Required Headers
+      run: |
+        curl -s -H "Content-Type: application/json" -H "X-CERTUNLP: flag" -o response.txt -w "%{http_code}" https://actions.ctf.cert.unlp.edu.ar
+        cat response.txt
