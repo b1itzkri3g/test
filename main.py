@@ -469,6 +469,9 @@ async def process_topup(accounts_text: str, user_id: int, message: types.Message
 
                 account_info = await smile_one.get_role(userid, zoneid, '16642')
                 data = json.loads(account_info)
+                if data.get("status") == 201:
+                    await message.answer(f"Ban Server")
+                    return
                 if data.get("message") != "success":
                     await message.answer(f"❌ Invalid account: {userid} {zoneid}")
                     return
@@ -533,6 +536,9 @@ async def process_topup(accounts_text: str, user_id: int, message: types.Message
                         account_info = await smile_one.get_role(userid, zoneid, sp)
                         print(account_info)
                         data = json.loads(account_info)
+                        if data.get("status") == 201:
+                            await message.answer(f"Ban Server")
+                            return
                         if data.get("message") != "success":
                             await message.answer(f"❌ Invalid account: {userid} {zoneid} for product {sp}")
                             all_verified = False
@@ -585,6 +591,9 @@ async def process_topup(accounts_text: str, user_id: int, message: types.Message
                     account_info = await smile_one.get_role(userid, zoneid, product_id)
                     data = json.loads(account_info)
                     print(account_info)
+                    if data.get("status") == 201:
+                        await message.answer(f"Ban Server")
+                        return
                     if data.get("message") != "success":
                         await message.answer(f"❌ Invalid account: {userid} {zoneid}")
                         return
@@ -756,6 +765,9 @@ async def process_topup_ph(accounts_text: str, user_id: int, message: types.Mess
 
                 account_info = await smile_one_ph.get_role(userid, zoneid, '16641')
                 data = json.loads(account_info)
+                if data.get("status") == 201:
+                    await message.answer(f"Ban Server")
+                    return
                 if data.get("message") != "success":
                     await message.answer(f"❌ Invalid account: {userid} {zoneid}")
                     return
@@ -820,6 +832,9 @@ async def process_topup_ph(accounts_text: str, user_id: int, message: types.Mess
                         account_info = await smile_one_ph.get_role(userid, zoneid, sp)
                         print(account_info)
                         data = json.loads(account_info)
+                        if data.get("status") == 201:
+                            await message.answer(f"Ban Server")
+                            return
                         if data.get("message") != "success":
                             await message.answer(f"❌ Invalid account: {userid} {zoneid} for product {sp}")
                             all_verified = False
@@ -872,6 +887,9 @@ async def process_topup_ph(accounts_text: str, user_id: int, message: types.Mess
                     account_info = await smile_one_ph.get_role(userid, zoneid, product_id)
                     data = json.loads(account_info)
                     print(account_info)
+                    if data.get("status") == 201:
+                        await message.answer(f"Ban Server")
+                        return
                     if data.get("message") != "success":
                         await message.answer(f"❌ Invalid account: {userid} {zoneid}")
                         return
